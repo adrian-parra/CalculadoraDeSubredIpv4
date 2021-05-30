@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<!--layout contenedor -->
+    <LinearLayout
+        android:paddingBottom="10px"
+        android:background="@color/primaryVariant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--Titulo de la app-->
+        <TextView
+            android:layout_marginTop="20px"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/style_bordes"
+            android:textColor="@color/primaryVariant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="CALCULADORA DE SUBRED IPV4"
+            android:textSize="@dimen/size_title"
+            android:textAlignment="center">
+        </TextView>
+
+        <!--CONTENEDOR LAYOUT HORIZONTAL (DESCRIPCION Y BTN CLEAR)-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!--LAYOUT VERTICAL PARA DESCRIPCION -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <!--DESCRIPCION-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="DIRECCION IP"
+                    android:layout_marginLeft="5px"
+                    android:textSize="@dimen/size_text_descripcion"
+                    />
+            </LinearLayout>
+            <!--fin LAYOUT VERTICAL PARA DESCRIPCION -->
+
+            <!--LAYOUT VERTICAL PARA btn clear-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="vertical">
+                <!--btn clear-->
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btnClear"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="@dimen/size_text_descripcion"
+                  app:rippleColor="@color/gray"
+                  android:textColor="@color/white"
+                  style="@style/Widget.MaterialComponents.Button.TextButton"
+                  android:layout_marginRight="5px"
+                  android:text="Limpiar"
+                  />
+            </LinearLayout>
+            <!--fin LAYOUT VERTICAL PARA btn clear-->
+        </LinearLayout>
+        <!-- FIN CONTENEDOR LAYOUT HORIZONTAL -->
+
+
+        <!--Layout donde se ingresa la direccion ip -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10px"
+            android:layout_height="wrap_content">
+
+            <!--Contenedor vertical para direccion ip -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/lyEditext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintTextColor="@color/white"
+                android:hint="Ej. 192.168.0.1"
+                app:boxStrokeColor="@color/white"
+                app:helperText="Requerido*"
+                app:helperTextTextAppearance="@dimen/size_text_descripcion"
+                app:helperTextTextColor="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error"
+                android:autoSizeTextType="uniform"
+                >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etIp"
+                android:maxLength="16"
+                android:autoSizeTextType="uniform"
+                android:textSize="@dimen/size_text_descripcion"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--Contenedor vertical para notacion de bits -->
+            <LinearLayout
+                android:layout_marginLeft="5px"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                  app:boxBackgroundColor="@color/primaryVariant"
+                    android:id="@+id/lyEditext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hintTextColor="@color/white"
+                    app:helperText="MASCARA"
+                    app:helperTextTextColor="@color/white"
+                    app:boxStrokeColor="@color/white"
+                    android:textAlignment="center"
+                    android:autoSizeTextType="uniform"
+
+                       >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:autoSizeTextType="uniform"
+                        android:enabled="false"
+                        android:id="@+id/et5"
+
+                         android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:inputType="phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+        <!--Fin de donde se ingresa la direccion ip-->
+
+        <!--Contenedor para button informacion-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInformacion"
+            android:visibility="gone"
+            android:padding="30px"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text_descripcion"
+            android:layout_height="match_parent"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="informacion"
+            android:layout_margin="5px"
+            app:rippleColor="@color/white"
+            app:strokeColor="@color/white"
+            />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--Fin de layout contenedor secundario-->
+
+
+    <!--SEPARADOR CON STYLE -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="@color/white"/>
+
+    <!--SCROOL VIEW -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--Contenedor para el scrool view-->
+        <LinearLayout
+            android:id="@+id/lyConteScroolView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+
+
+
+<!--CARD VIEW DONDE MUESTRO INFORMACION DE LA RED -->
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_marginTop="15px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        android:animateLayoutChanges="true"
+        app:cardElevation="4dp"
+        android:backgroundTint="@color/white">
+        <!--Contenedor principal vertical -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="0px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primaryVariant">
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:padding="15px"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DETALLES DE LA RED"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size_text_descripcion"/>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+
+            <!--Contenedor horizontal para que clase es -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Contenedor vertical-->
+                <LinearLayout
+                    android:gravity="center|left"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginLeft="5px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:autoSizeTextType="uniform"
+                        android:text="CLASE"
+                        android:textColor="@color/primaryVariant"
+                        android:textSize="@dimen/size_text_descripcion"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+
+                        android:id="@+id/tvClase"
+                        android:textColor="@color/primaryVariant"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        />
+                </LinearLayout>
+                <!--FIN CONTENEDOR VERICAL 2 -->
+
+            </LinearLayout>
+            <!--FIN Contenedor horizontal para que clase es -->
+
+            <!--Contenedor horizontal para que mascara es -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Contenedor vertical-->
+                <LinearLayout
+                    android:gravity="center|left"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:layout_marginLeft="5px"
+                        android:textColor="@color/primaryVariant"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MASCARA"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+
+                        android:id="@+id/tvMascara"
+                        android:textColor="@color/primaryVariant"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="255.255.255.0"
+                        />
+                </LinearLayout>
+                <!--FIN CONTENEDOR VERICAL 2 -->
+
+            </LinearLayout>
+            <!--FIN Contenedor horizontal para que clase es -->
+
+            <!--Contenedor horizontal para Numero de subredes -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Contenedor vertical-->
+                <LinearLayout
+                    android:gravity="center|left"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:layout_marginLeft="5px"
+                        android:textColor="@color/primaryVariant"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NUMERO DE SUBREDES"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <Spinner
+                        android:id="@+id/SpNumSubredes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/primaryVariant"
+
+                        android:popupBackground="@color/white"
+                        android:spinnerMode="dropdown" />
+                </LinearLayout>
+                <!--FIN CONTENEDOR VERICAL 2 -->
+
+            </LinearLayout>
+            <!--FIN Contenedor horizontal numero de subredes -->
+
+            <!--Contenedor horizontal para Numero de subredes -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Contenedor vertical-->
+                <LinearLayout
+                    android:gravity="center|left"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:layout_marginLeft="5px"
+                        android:textColor="@color/primaryVariant"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HOST POR SUBRED"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <Spinner
+                        android:id="@+id/SpHostSubred"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/primaryVariant"
+                        android:popupBackground="@color/white"
+                        android:spinnerMode="dropdown" />
+                </LinearLayout>
+                <!--FIN CONTENEDOR VERICAL 2 -->
+
+            </LinearLayout>
+            <!--FIN Contenedor horizontal numero de subredes -->
+
+            <!--Contenedor para button obtener rangos-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    app:iconTint="@color/primaryVariant"
+                    android:textSize="@dimen/size_text_descripcion"
+                    android:id="@+id/btnObtenerRangos"
+                    android:padding="30px"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/primaryVariant"
+                    android:layout_height="match_parent"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:text="GENERAR RANGOS"
+                    android:layout_margin="5px"
+
+                    app:rippleColor="@color/primaryVariant"
+                    app:strokeColor="@color/primaryVariant"
+                    />
+
+            </LinearLayout>
+            <!--fin Contenedor para button obtener rangos-->
+
+            <!--contenedor para el progressbar-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/pbRangos"
+                    android:indeterminateDrawable="@drawable/loading"
+                    android:indeterminateDuration="@android:integer/config_longAnimTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <!--fin contenedor para el progressbar-->
+
+
+        </LinearLayout>
+        <!-- fin Contenedor principal vertical -->
+
+
+
+
+    </androidx.cardview.widget.CardView>
+<!--FIN DEL CARDCIEW INFORMACION DE RED-->
+
+            <!--LAYOUT HORIZONTAL CONTENEDOR PARA DES. RANGOS-->
+            <LinearLayout
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="0px"
+             android:background="@color/primaryVariant"
+                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--ESTRUCTURA DIVIDIDO EN 4 PARA AGREGAR TEXTVIEW-->
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:id="@+id/tvNetwork"
+                        android:textColor="@color/white"
+                        android:padding="15px"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:text="Network"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:textColor="@color/white"
+                        android:padding="15px"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:text="First Host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:id="@+id/tvLastHost"
+                        android:textColor="@color/white"
+                        android:padding="15px"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:text="Last Host"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:id="@+id/tvBroadcast"
+                        android:textColor="@color/white"
+                        android:padding="15px"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size_text_descripcion"
+                        android:text="Broadcast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <!--LAYOUT HORIZONTAL CONTENEDOR PARA DES. RANGOS-->
+
+            <!--RECYCLER VIEW DONDE AGREGO EL RANGO -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/rvRangos"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_width="match_parent"
+                android:layout_height="900px"
+                android:background="@color/white">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <!--FIN DEL RECYCLER VIEW DE RANGOS-->
+
+
+        </LinearLayout>
+        <!--Fin del contenedor para el scrool view -->
+
+    </ScrollView>
+    <!--FIN DEL SCROOL VIEW-->
+
+
+</LinearLayout>
